@@ -6,24 +6,23 @@ Resources:
   LambdaDevOpsFunction:
     Type: AWS::Serverless::Function 
     Properties:
-      CodeUri: Lambdaassignment/
+      CodeUri: LambdaDevOps/
       Handler: app.lambda_handler
       Runtime: python3.9
       Events:
         LambdaDevOps:
           Type: Api 
           Properties:
-            Path: /Lambdaassignment
+            Path: /LambdaDevOps
             Method: get
 
 Outputs:
   LambdaDevOpsApi:
-    Description: "API Gateway endpoint URL for Prod stage for Lambdaassignment function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/Lambdaassignment/"
+    Description: "API Gateway endpoint URL for Prod stage for LambdaDevOps function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/LambdaDevOps/"
   LambdaDevOpsFunction:
-    Description: "Lambdaassignment Lambda Function ARN"
+    Description: "LambdaDevOps Lambda Function ARN"
     Value: !GetAtt LambdaDevOpsFunction.Arn
   LambdaDevOpsFunctionIamRole:
-    Description: "Implicit IAM Role created for Lambdaassignment function"
-    Value: !GetAtt LambdaassignmentFunctionRole.Arn
-
+    Description: "Implicit IAM Role created for LambdaDevOps function"
+    Value: !GetAtt LambdaDevOpsFunctionRole.Arn
